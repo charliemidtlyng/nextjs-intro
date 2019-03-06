@@ -21,7 +21,6 @@ export default class extends React.Component {
     const {id} = this.props.query;
     const response = await fetch(`/fotballapi/events/${id}`)
     let data = await response.json();
-
     this.setState({ details: data })
   }
 
