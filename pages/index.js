@@ -4,11 +4,12 @@ import EventSummary from '../components/eventSummary';
 import Layout from '../components/layout';
 import Spinner from '../components/spinner';
 import fetch from 'isomorphic-unfetch'
+import resolveProtocol from '../utils/urlUtils';
 
 export default class extends React.Component {
 
   static async getInitialProps ({ req, pathname, query }) {
-    const baseUrl = req ? `${req.protocol}://${req.headers.host}` : '';
+    const baseUrl = req ? `${resolveProtocol(req)}://${req.headers.host}` : '';
     const response = await fetch(`${baseUrl}/fotballapi/events`)
     const allActivities = await response.json();
     const activities = allActivities
