@@ -5,7 +5,7 @@ const dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
 const EventSummary = ({event}) => (
   <Link href={`/event?id=${event.id}`} as={`/event/${event.id}`}>
     <div className='eventSummary'>
-      <p>{event.subject}</p>
+      <h1><i className="far fa-futbol"></i>{event.subject}</h1>
       <p>{new Date(event.startTime).toLocaleTimeString('nb-NO', dateOptions)}</p>
     <style jsx>{`
      .eventSummary {
@@ -17,6 +17,9 @@ const EventSummary = ({event}) => (
      .eventSummary:hover {
       background-color: #383737;
       cursor: pointer;
+    }
+    i {
+      margin-right: 10px;
     }
     p {
       margin: 0px;

@@ -2,6 +2,7 @@ import React from 'react'
 import Head from '../components/head';
 import EventDetails from '../components/eventDetails';
 import Layout from '../components/layout';
+import Spinner from '../components/spinner';
 export default class extends React.Component {
   constructor (props) {
     super(props)
@@ -21,7 +22,6 @@ export default class extends React.Component {
     const {id} = this.props.query;
     const response = await fetch(`/fotballapi/events/${id}`)
     let data = await response.json();
-
     this.setState({ details: data })
   }
 
@@ -31,7 +31,7 @@ export default class extends React.Component {
     return (
       <Layout>
         <Head title={details ? details.subject : ''} url={asPath}/> 
-        {!details ? <pre>Henter detaljer</pre> : null}
+        {!details ? <Spinner /> : null}
         <div>{details ? <EventDetails event={details} />: null}</div>
       </Layout>
     )
