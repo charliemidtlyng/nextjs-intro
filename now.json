@@ -4,7 +4,7 @@
       { "src": "next.config.js", "use": "@now/next" }
     ],
     "routes":[
-      {"src": "/event/(?<name>[^/]+)$)", "dest": "/event.js?id=$id"},
+      {"src": "/event/(?<id>[^/]+)$)", "dest": "/event.js?id=$id"},
       {"src": "/fotballapi/(.*)", "dest": "http://fotball.bekk.no/api/$1"},
       {"src": "/(.*)", "dest": "/$1"}
   ]
