@@ -1,8 +1,8 @@
 ## Intro til NextJs
 Enkel demo for NextJs. Benytter seg av Bekk fotball sitt API for uthenting av kamper og treninger.
-[https://slides.com/charliemidtlyng/nextjs]Slides
+[Slides](https://slides.com/charliemidtlyng/nextjs)
 
-### `getInitialProps``
+### `getInitialProps`
 Server-kode som initaliseres på sidelast.
 
 ## Kjøre
@@ -13,7 +13,7 @@ Installere avhengigheter
 ### `npm run dev`
 
 Kjører appen lokalt med express server<br>
-[http://localhost:3000] http://localhost:3000
+[http://localhost:3000](http://localhost:3000)
 
 ## Server/Serverless
 
