@@ -8,7 +8,7 @@ import fetch from 'isomorphic-unfetch'
 export default class extends React.Component {
 
   static async getInitialProps ({ req, pathname, query, asPath }) {
-    const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+    const baseUrl = req ? `${req.protocol}://${req.headers.host}` : '';
     const response = await fetch(`${baseUrl}/fotballapi/events/${query.id}`)
     const details = await response.json();
 
