@@ -1,6 +1,7 @@
 ## Intro til NextJs
-Enkel demo for NextJs. Benytter seg av Bekk fotball sitt API for uthenting av kamper og treninger.
+Enkel demo for NextJs. Benytter seg av Bekk fotball sitt API for uthenting av kamper og treninger.<bbr>
 [Slides](https://slides.com/charliemidtlyng/nextjs)
+[Prod dashboard](https://zeit.co/dashboard/project/nextjs-intro)
 
 ### `getInitialProps`
 Server-kode som initaliseres på sidelast.
