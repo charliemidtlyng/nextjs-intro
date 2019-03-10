@@ -7,14 +7,14 @@
     "start": "cross-env NODE_ENV=development PORT=$PORT node server.js"
   },
   "dependencies": {
+    "express": "^4.15.3",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^8.0.3",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "express": "^4.15.3"
+    "react-dom": "^16.8.3"
   },
   "devDependencies": {
     "cross-env": "^5.0.1",
     "http-proxy-middleware": "^0.17.4"
   }
-
 }

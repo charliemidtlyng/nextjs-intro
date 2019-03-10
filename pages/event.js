@@ -3,14 +3,17 @@ import Head from '../components/head';
 import EventDetails from '../components/eventDetails';
 import Layout from '../components/layout';
 import Spinner from '../components/spinner';
-export default class extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { }
-  }
+import fetch from 'isomorphic-unfetch'
 
-  static async getInitialProps ({ pathname, query, asPath }) {
+export default class extends React.Component {
+
+  static async getInitialProps ({ req, pathname, query, asPath }) {
+    const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+    const response = await fetch(`${baseUrl}/fotballapi/events/${query.id}`)
+    const details = await response.json();
+
     return {
+      details,
       pathname,
       query,
       asPath,
@@ -18,21 +21,12 @@ export default class extends React.Component {
     }
   }
 
-  async componentDidMount () {
-    const {id} = this.props.query;
-    const response = await fetch(`/fotballapi/events/${id}`)
-    let data = await response.json();
-    this.setState({ details: data })
-  }
-
   render () {
-    const { details } = this.state;
-    const { asPath } = this.props;
+    const { asPath, details } = this.props;
     return (
       <Layout>
         <Head title={details ? details.subject : ''} url={asPath}/> 
-        {!details ? <Spinner /> : null}
-        <div>{details ? <EventDetails event={details} />: null}</div>
+        <div>{ details ? <EventDetails event={details} /> : <Spinner /> }</div>
       </Layout>
     )
   }

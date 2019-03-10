@@ -46,7 +46,10 @@ const Nav = () => (
       a {
         color: #fd5058;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 24px;
+      }
+      a:hover {
+        color: #fb767c
       }
     `}</style>
   </nav>
